@@ -13,31 +13,16 @@
             <div class = "title">
                 Credit card approval predictor
             </div>
-            <form action ="/">
+            <form action ="/" method="POST">
                 <div class = "form">
-                <div>
-                    <div class="check">
-                        Own a car :
-                        <input type="radio" id="" name="" value="">
-                        <label for="yes">YES</label>
-                        <input type="radio" id="" name="" value="">
-                        <label for="no">NO</label><br> 
-                    </div>
-                    <div class="check">
-                         Own realty  :
-                        <input type="radio" id="" name="" value="">
-                        <label for="yes">YES</label>
-                        <input type="radio" id="" name="" value="">
-                        <label for="no">NO</label><br> 
-                    </div>   
+  
+                <div class="inputfield">
+                    <label for="income">Total Income:</label>
+                    <input type="text" id="" name="income" value="">
                 </div>
                 <div class="inputfield">
                     <label for="children">Number of children:</label>
                     <input type="text" id="" name="children" value="">
-                </div>
-                <div class="inputfield">
-                    <label for="income">Total income:</label>
-                    <input type="text" id="" name="income" value=""> 
                 </div>
                 <div class="inputfield">
                     <label for="family">Total family members:</label>
@@ -50,6 +35,10 @@
                 <div class="inputfield">
                     <label for="experience">Years of experience:</label>
                     <input type="text" id="" name="experience" value=""> 
+                </div>
+                <div class="inputfield">
+                    <label for="months_balance">Months Balance:</label>
+                    <input type="text" id="" name="months_balance" value=""> 
                 </div>
                 <div class="inputfield">
                     <label for="income_type">Income type:</label>
@@ -123,13 +112,30 @@
                           </select>
                     </div>
                 </div>
+                <div >
+                    
+                    <div class="check">
+                        Own a car :
+                        <input type="radio" id="" name="" value="">
+                        <label for="yes">yes</label>
+                        <input type="radio" id="" name="" value="">
+                        <input type="radio" id="" name="" value="">
+                        <label for="no">no</label><br> 
+                    </div>
+                    <div class="check">
+                         Own realty  :
+                        <input type="radio" id="" name="" value="">
+                        <label for="yes">yes</label>
+                        <input type="radio" id="" name="" value="">
+                        <label for="no">no</label><br> 
+                    </div>   
+                </div>
                 <div class= "inputfield">
                     <input type="submit" class ="btn" value="Predict">
                 </div>
             </form>
         </div> 
-    </div>
-    
+      </div>
     </body>
 </html>
         
