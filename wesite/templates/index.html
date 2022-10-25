@@ -137,6 +137,14 @@
                     <input type="submit" class ="btn" value="Predict">
                 </div>
             </form>
+           <div class="result">
+            {%if pred != 0%}
+             <p>
+                
+                predicted value: {{pred}}
+             </p>
+             {%endif%}
+           </div>
         </div> 
       </div>
     </body>

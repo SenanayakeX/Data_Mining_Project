@@ -1,12 +1,22 @@
+from fileinput import filename
 from pydoc import render_doc
 from flask import Flask,render_template, request
+import pickle
 app = Flask(__name__)
+
+def prediction(list):
+    filename='model/predictor.pickle'
+    with open(filename,'rb') as file:
+        model= pickle.load(file)
+    pred_value=model.predict([list])
+    return pred_value
 
 @app.route('/', methods=["POST", "GET"])
 def index():
     ##
+    pred =0
     if request.method == "POST":
-        ##
+        ##take inputs from the frontend to variables
         total_income = request.form['income']
         total_children=request.form['children']     
         total_family = request.form['family']
@@ -20,7 +30,7 @@ def index():
         Job_Title=request.form['Job_Title']
         car=request.form.getlist('car')
         realty=request.form.getlist('realty')
-       ## print(total_income,total_children,total_family,years_experience,months_balance,income_type,education_type,Family_Status,Housing_Type,Job_Title,car,realty)
+        ##print(total_income,total_children,total_family,years_experience,months_balance,income_type,education_type,Family_Status,Housing_Type,Job_Title,car,realty)
         ## append values to array
         feature_list =[]
         feature_list.append(len(car))
@@ -51,7 +61,8 @@ def index():
         traverse(Job_Title_list,Job_Title)
         ##call prediction method and store result in pred variable(predicted answer)
         pred=prediction(feature_list)
-    return render_template("index.html")
+        ##print(pred)
+    return render_template("index.html", pred=pred)
     
 
 if __name__ == "__main__":
