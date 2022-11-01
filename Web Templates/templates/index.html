@@ -8,7 +8,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./static/style.css">
     </head>
-    <body>
+    
+    <body onload="flaskMessage()">
+        <!-- <script>
+            function flaskMessage() {
+            // if ("{{ pred }}" == -1) {
+            //     alert("[YOUR_MESSAGE_HERE]");
+            // }
+            sd = "{{pred}}"
+            alert(sd[1]);
+            }
+        </script> -->
         <div class = "wrapper">
             <div class = "title">
                 Credit card approval predictor
@@ -120,7 +130,7 @@
                         <label for="yes">yes</label>
                         <input type="radio" id="" name="car" value="">
                         <label for="no">no</label><br>
-                        <input type="radio" id="" name="" value="">
+                        <input type="radio" id="" name="car" value="">
                          
                     </div>
                     <div class="check">
@@ -129,35 +139,46 @@
                         <label for="yes">yes</label>
                         <input type="radio" id="" name="realty" value="">
                         <label for="no">no</label><br> 
-                        <input type="radio" id="" name="" value="">
+                        <input type="radio" id="" name="realty" value="">
                         
                     </div>   
                 </div>
                 <div class= "inputfield">
-                    <input type="submit" class ="btn" value="Predict">
+                    <input type="submit" class ="btn"  value="Predict1">
+                </div>
+                <div class= "inputfield">
+                    <input type="button" class ="btn" onclick="remove()" value="Clear Values">
                 </div>
             </form>
+           
            <div class="result">
-            {%if pred != 0%}
-             <p>
-                
-                predicted value: {{pred}}
-             </p>
-             {%endif%}
+            <p id = "demo"></p>
+            
+            
+        
+            <script>
+                function flaskMessage() {
+                    // "{{pred}}" = -1
+                    var x = "{{pred}}"
+                    if ("{{pred}}" == -1){
+                        document.getElementById("demo").innerHTML = null;
+                    }
+                    else if(x[1] == 0){
+                        document.getElementById("demo").innerHTML = "Predict V" + x;
+                    }
+                    else{
+                        document.getElementById("demo").innerHTML = "Pre" + x;
+                    }
+                }
+
+                function remove(){
+                    document.getElementById("demo").innerHTML = null;
+                }
+            </script>
+           
            </div>
+           
         </div> 
       </div>
     </body>
 </html>
-        
-
-
-
-        
-        
-        
-        
-       
-    
-        
-
