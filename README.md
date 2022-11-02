@@ -10,6 +10,7 @@
 - ### Member 05 - IT20600334 - Mr. Withanage P.W.E.L (IT20600334)
 Note - The group member's github account should be given in brackets.
 
+
 #### Brief Description of Project - This project builds a machine learning model and the model predicts whether the applicant is eligible for credit card or not and the other model recommends that after a customer buys a few items, it shows recommended items that he is most likely to buy next.
 #### Gaussian NB and apriori are used as algorithms.
 #### 🔴Tools & technologies
