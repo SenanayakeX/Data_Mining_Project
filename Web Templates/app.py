@@ -8,9 +8,17 @@ import function as util
 app = Flask(__name__)
 ruless = pickle.load(open('rules.pkl', 'rb'))
 
+# @app.route('/', methods=["POST", "GET"])
+# def welcome():
+#     return render_template("home.html")
+
 @app.route('/association')
 def association_start():
     return render_template('association.html')
+
+@app.route('/classification')
+def classification_start():
+    return render_template('index.html')
 
 app = Flask(__name__)
 
@@ -21,7 +29,7 @@ def prediction(list):
     pred_value=model.predict([list])
     return pred_value
 
-@app.route('/', methods=["POST", "GET"])
+@app.route('/predict', methods=["POST", "GET"])
 def index():
 
     pred = -1
@@ -81,7 +89,7 @@ def index():
     
     return render_template("index.html", pred = pred)
 
-"""@app.route("/", methods=["GET", "POST"])
+@app.route("/rule", methods=["GET", "POST"])
 def pattern_analysis():
     listed = ""
     items_selected = []
@@ -105,7 +113,13 @@ def pattern_analysis():
         listed = util.recommend_product(item_list)
         #util.networkPlotRule(item_list)
 
-    return render_template('association.html', pattern1=listed,items=" , ".join([str(item) for item in items_selected]))"""
+    return render_template('association.html', pattern1=listed,items=" , ".join([str(item) for item in items_selected]))
+
+
+@app.route("/", methods=["GET", "POST"])
+def analysis():
+
+    return render_template('home.html')
     
 
 if __name__ == "__main__":
