@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" >
     <head>
         <meta charset="utf-8">
@@ -10,15 +10,6 @@
     </head>
     
     <body onload="flaskMessage()">
-        <!-- <script>
-            function flaskMessage() {
-            // if ("{{ pred }}" == -1) {
-            //     alert("[YOUR_MESSAGE_HERE]");
-            // }
-            sd = "{{pred}}"
-            alert(sd[1]);
-            }
-        </script> -->
         <div class = "wrapper">
             <div class = "title">
                 Credit card approval predictor
@@ -144,7 +135,7 @@
                     </div>   
                 </div>
                 <div class= "inputfield">
-                    <input type="submit" class ="btn"  value="Predict1">
+                    <input type="submit" class ="btn"  value="Predict Value">
                 </div>
                 <div class= "inputfield">
                     <input type="button" class ="btn" onclick="remove()" value="Clear Values">
@@ -158,16 +149,15 @@
         
             <script>
                 function flaskMessage() {
-                    // "{{pred}}" = -1
                     var x = "{{pred}}"
                     if ("{{pred}}" == -1){
                         document.getElementById("demo").innerHTML = null;
                     }
                     else if(x[1] == 0){
-                        document.getElementById("demo").innerHTML = "Predict V" + x;
+                        document.getElementById("demo").innerHTML = "Customer Is Not Eligible For Credit Card.";
                     }
                     else{
-                        document.getElementById("demo").innerHTML = "Pre" + x;
+                        document.getElementById("demo").innerHTML = "Customer Is Eligible For Credit Card.";
                     }
                 }
 
@@ -181,4 +171,154 @@
         </div> 
       </div>
     </body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Credit card approval predictor</title>
+	<link rel="stylesheet" type="text/css" href="./static/ClassStyle.css">
+    
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body onload="flaskMessage()">
+    <nav>
+        <div class="navicon">
+        <div></div>
+        </div>
+      
+        <a href="/">Home</a>
+        <a href="/rule">Apriori</a>      
+    </nav>
+
+	<div class="container">
+		<div class="contact-box">
+			<div class="left"></div>
+			<div class="right">
+				<h2>CREDIT CARD APPROVAL PREDICTOR</h2>
+                <form method="POST">
+
+                <input type="text" class="field" placeholder="Total Income"id="" name="income" value="">
+                <input type="text" class="field" placeholder="Number of children"id="" name="children" value="">
+				<input type="text" class="field" placeholder="Total family members"id="" name="family" value="">
+                <input type="text" class="field" placeholder="Age"id="" name="age" value="">
+                <input type="text" class="field" placeholder="Years of experience"id="" name="experience" value="">
+                <input type="text" class="field" placeholder="Months Balance"id="" name="months_balance" value="">
+                <h6 align = "left">*record month: The month of the extracted data is the starting point, backwards, 0 is the current month, -1 is the previous month, and so on</h6><br>
+                
+                
+                <select class="field" name="income_type" id="" required>
+                    <option value="">Income Type</option>
+                    <option value="Commercial associate">Commercial associate</option>
+                    <option value="Pensioner">Pensioner</option>
+                    <option value="State servant">State servant</option>
+                    <option value="Student">Student</option>
+                    <option value="Working">Working</option>
+                  </select>
+
+                  <select class="field" name="education_type" id="">
+                    <option value="">Education Type</option>
+                    <option value="Academic degree">Academic degree</option>
+                    <option value="Higher education">Higher education</option>
+                    <option value="Incomplete higher">Incomplete higher</option>
+                    <option value="Lower secondary">Lower secondary</option>
+                    <option value="Secondary / secondary special">Secondary / secondary special</option>
+                  </select>
+
+                  <select class="field" name="Family_Status" id="">
+                    <option value="">Family Status</option>
+                    <option value="Civil marriage">Civil marriage</option>
+                    <option value="Married">Married</option>
+                    <option value="Separated">Separated</option>
+                    <option value="Single / not married">Single / not married</option>
+                    <option value="Widow">Widow</option>
+                  </select>
+
+                  <select class="field" name="Housing_Type" id="">
+                    <option value="">Housing Type</option>
+                    <option value="Co-op apartment">Co-op apartment</option>
+                    <option value="House / apartment">House / apartment</option>
+                    <option value="Municipal apartment">Municipal apartment</option>
+                    <option value="Office apartment">Office apartment</option>
+                    <option value="Rented apartment">Rented apartment</option>
+                    <option value="With parents">With parents</option>
+                  </select>
+
+                  <select class="field" name="Job_Title" id="">
+                    <option value="">Job Title</option>
+                    <option value="Accountants">Accountants</option>
+                    <option value="Core staff">Core staff</option>
+                    <option value="Dining staff">Dining staff</option>
+                    <option value="Drivers">Drivers</option>
+                    <option value="High skill tech staff">High skill tech staff</option>
+                    <option value="Laborers">Laborers</option>
+                    <option value="Low-skill Laborers">Low-skill Laborers</option>
+                    <option value="Managers">Managers</option>
+                    <option value="Medicine staff">Medicine staff</option>
+                    <option value="Office staff">Office staff</option>
+                    <option value="Sales staff">Sales staff</option>
+                  </select>
+
+                  <div class="field">
+                    Own a car :
+                    
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="" name="car" value="">
+                    <label for="no">No</label><br>
+                    <input type="radio" id="" name="car" value="">
+                     
+                </div>
+                <div class="field">
+                    Own realty :
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="" name="realty" value="">
+                    <label for="no">No</label><br>
+                    <input type="radio" id="" name="realty" value="">
+                     
+                </div>
+                <div class= "inputfield">
+                    <input type="reset" class ="btn" value="Clear Values">
+                </div><br>
+                <div class= "inputfield">
+                    <input type="submit" class ="btn"  value="Predict Value">
+                </div><br>
+                <div class= "inputfield">
+                    <input type="button" class ="btn" onclick="remove()" value="Clear Status">
+                </div>
+                </form>
+
+                <div class="result">
+                    <br><h1><font color= "red"><p id = "demo"></p></font></p></h1>
+                    
+                    
+                
+                <script>
+                    function flaskMessage() {
+                        var x = "{{pred}}"
+                        if ("{{pred}}" == -1){
+                            document.getElementById("demo").innerHTML = null;
+                        }
+                        else if(x[1] == 0){
+                            document.getElementById("demo").innerHTML = "Customer Is Not Eligible For Credit Card.";
+                        }
+                        else{
+                            document.getElementById("demo").innerHTML = "Customer Is Eligible For Credit Card.";
+                        }
+                    }
+        
+                    function remove(){
+                        document.getElementById("demo").innerHTML = null;
+                    }
+                </script>
+                   
+                </div>
+
+			</div>
+		</div>
+	</div>
+</body>
 </html>
