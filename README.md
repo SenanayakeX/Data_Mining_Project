@@ -1,5 +1,5 @@
 # ⭐FDM-Mini-Project
-## ⚝ Credit card approval system & Product recommondation system
+## ⚝ Credit card approval system & Product recommendation system
 ## Group Number - G42
 ## Batch - Weekday – Batch 05
 
