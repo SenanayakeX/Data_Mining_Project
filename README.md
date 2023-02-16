@@ -1,7 +1,7 @@
 # ⭐FDM-Mini-Project
 ## ⚝ Credit card approval system & Product recommendation system
 ## Group Number - G42
-## Batch - Weekday – Batch 05
+## Batch 05 - Weekday
 
 - ### Group Leader - IT20606756 - Mr. Pasindu Senanayake (SenanayakeX)
 - ### Member 02 - IT20606442 - Mr. Guwanjith Sakbo (IT20606442)
